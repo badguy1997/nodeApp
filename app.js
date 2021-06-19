@@ -5,7 +5,10 @@ const app = express();
 const productRouters = require('./routes/product');
 const ordersRouters = require('./routes/orders');
 const morgan = require('morgan');
+const bodyParser = require('body-parser')
 
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 //all the routers
